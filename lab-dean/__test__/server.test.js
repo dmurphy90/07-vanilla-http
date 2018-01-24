@@ -77,7 +77,7 @@ describe('Server Module', function() {
   describe('Invalid Request to the API', () => {
     describe('GET /cowsay', () => {
       it('should send 400 if no data is sent', () => {
-        return superagent.post(':4444/cowsay?text=')
+        return superagent.get(':4444/cowsay?text=')
           .send()
           .then(res => {
           })
