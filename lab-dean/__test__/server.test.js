@@ -51,21 +51,21 @@ describe('Server Module', function() {
     });
     describe('POST', () => {
       it('should respond with a status of 200', () => {
-        return superagent.get(':4444/cowsay?text=testing')
+        return superagent.post(':4444/cowsay?text=testing')
           .send({text: 'test'})
           .then(res => {
             expect(res.status).toBe(200);
           });   
       });
       it('should return an object matching the query text', () => {
-        return superagent.get(':4444/cowsay?text=testing')
+        return superagent.post(':4444/cowsay?text=testing')
           .send({'text': 'testing'})
           .then(res => {
             expect(res.text).toMatch(/testing/);
           });  
       });
       it('should return a valid object', () => {
-        return superagent.get(':4444/cowsay?text=testing')
+        return superagent.post(':4444/cowsay?text=testing')
           .send({'text': 'testing'})
           .then(res => {
             expect(res.body).toBeInstanceOf(Object);
